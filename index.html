@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Mortgage Calculator</title>
+  <!-- bower:css -->
+  <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <!-- endbower -->
+
+  <!-- inject:css -->
+  <!-- endinject -->
+</head>
+
+<body ng-controller="Controller as vm" background="images/home.jpg">
+
+  <div class="container">
+    <h2>Mortgage Calculator</h2>
+  </div>
+
+  <div class="form-group row">
+    <label for="loanBalance" class="col-md-2 col-form-label text-right">Loan Balance</label>
+    <div class="col-md-6">
+      <input class="form-control" type="number" id="loanBalance" ng-model="vm.loanBalance" placeholder="0.00">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="interestRate" class="col-md-2 col-form-label text-right">Interest Rate (%)</label>
+    <div class="col-md-6">
+      <input class="form-control" type="number" id="interestRate" ng-model="vm.interestRate" placeholder="0.00">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="loanTerm" class="col-md-2 col-form-label text-right">Loan Term</label>
+    <div class="col-md-6">
+      <input class="form-control" type="number" id="loanTerm" ng-model="vm.loanTerm" placeholder="0.00">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="selectPeriod" class="col-md-2 col-form-label text-right" {{vm.period}}>Period</label>
+    <div class="col-md-6">
+      <select class="form-control" id="selectPeriod" ng-model="vm.period" ng-options="option as option.label for option in vm.selectOptions">
+      </select>
+    </div>
+  </div>
+
+  <button type="button" class="btn btn-primary col-md-offset-2" ng-click="vm.Calculate()">Calculate</button>
+  <div class="row" id="finalMargin">
+    <label class="col-md-offset-2" id="finalLabel">Monthly payment:</label>
+    <p class="col-md-offset-2" ng-bind="vm.outputText"></p>
+  </div>
+
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <!-- endbower -->
+    <!-- inject:js -->
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <!-- endinject -->
+</body>
+
+</html>
